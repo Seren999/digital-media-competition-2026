@@ -11,6 +11,7 @@ import './CityMap.css'
 const ERAS = [
   {
     id: 'north-song',
+    slug: 'northern-song',
     era: '北宋',
     place: '州桥及汴河遗址',
     desc: '北宋汴京的水陆交通枢纽，《清明上河图》中虹桥的历史原型。',
@@ -22,6 +23,7 @@ const ERAS = [
   },
   {
     id: 'ming',
+    slug: 'ming',
     era: '明代',
     place: '周王府与开封城墙',
     desc: '明代周王府邸与开封城墙，见证中原王城的恢宏格局。',
@@ -33,6 +35,7 @@ const ERAS = [
   },
   {
     id: 'modern',
+    slug: 'modern',
     era: '近代',
     place: '马道街 / 龙亭 / 河大老校区',
     desc: '近代开封的商业老街、皇家园林与高等学府，中西交融的城市印记。',
@@ -44,6 +47,7 @@ const ERAS = [
   },
   {
     id: 'contemporary',
+    slug: 'contemporary',
     era: '当代',
     place: '州桥遗址博物馆',
     desc: '在州桥遗址上建立的现代博物馆，让千年古桥重见天日。',
@@ -85,7 +89,7 @@ function CityMap() {
 
         <div className="era-timeline">
           {ERAS.map((era) => (
-            <Link key={era.id} to="/city" className="era-card">
+            <Link key={era.id} to={`/history/${era.slug}`} className="era-card">
               <EraImage
                 src={era.image}
                 alt={era.alt}

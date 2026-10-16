@@ -47,3 +47,38 @@
   letter-spacing: 2px;
   color: var(--bg-deep);
 }
+
+/* 平板及以下：缩小间距与字号 */
+@media (max-width: 860px) {
+  .site-nav {
+    padding: 0 16px;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+/* 窄屏：允许导航换行，避免横向溢出 */
+@media (max-width: 560px) {
+  .site-nav {
+    min-height: 64px;
+    height: auto;
+    padding: 10px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    gap: 8px 14px;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+  }
+  .nav-link {
+    font-size: 13px;
+  }
+  .nav-logo {
+    font-size: 18px;
+  }
+}

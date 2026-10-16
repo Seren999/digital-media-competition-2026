@@ -1,0 +1,171 @@
+/* CityHub.css — 走进开封页（对应 assets/design/走进开封_择地.png） */
+
+.city-hub {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #1a1a2e url('/images/home/hero.jpg') center / cover no-repeat;
+}
+
+/* 深色半透明遮罩，保证白色标题清晰 */
+.city-hub::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 38, 56, 0.6) 0%,
+    rgba(20, 38, 56, 0.4) 100%
+  );
+}
+
+.city-hub__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+/* ===== 标题 ===== */
+.city-hub__title {
+  text-align: center;
+  font-size: clamp(30px, 4.5vw, 46px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #ffffff;
+}
+
+.city-hub__subtitle {
+  margin-top: 12px;
+  text-align: center;
+  font-size: clamp(13px, 1.7vw, 16px);
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ===== 地标卡片网格 ===== */
+.landmark-grid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.landmark-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15, 30, 48, 0.22);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.landmark-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 30, 48, 0.28);
+}
+
+.landmark-card:focus-visible {
+  outline: 3px solid #d94c5f;
+  outline-offset: 2px;
+}
+
+/* 方形图片容器：aspect-ratio 提供可计算尺寸基准 */
+.landmark-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ece4d6;
+}
+
+.landmark-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 图片加载失败占位 */
+.landmark-card__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ece4d6 0%, #d9cfbd 100%);
+  color: #9a8e78;
+}
+
+.landmark-card__fallback-icon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.landmark-card__fallback-text {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.landmark-card__body {
+  flex: 1;
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.landmark-card__name {
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: 1px;
+}
+
+.landmark-card__desc {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 860px) {
+  .landmark-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .city-hub__inner {
+    padding: 40px 14px 56px;
+  }
+
+  .city-hub__title {
+    letter-spacing: 4px;
+  }
+
+  .landmark-grid {
+    margin-top: 32px;
+    gap: 14px;
+  }
+
+  .landmark-card__body {
+    padding: 12px 12px 14px;
+  }
+
+  .landmark-card__name {
+    font-size: 14px;
+  }
+
+  .landmark-card__desc {
+    font-size: 11px;
+  }
+}

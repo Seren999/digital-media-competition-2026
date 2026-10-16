@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
-/* 城忆顶部主导航（6个入口，路由地址与 App.jsx 保持一致） */
+/* 城忆顶部主导航（7个入口，路由地址与 App.jsx 保持一致） */
 const mainNav = [
   { to: '/', label: '首页' },
-  { to: '/city-map', label: '城市地图' },
+  { to: '/city-map', label: '城市时光' },
+  { to: '/city', label: '走进开封' },
   { to: '/stories', label: '城市故事' },
   { to: '/album', label: '记忆相册' },
+  { to: '/memory-studio', label: '记忆工坊' },
   { to: '/about', label: '关于我们' },
-  { to: '/contact', label: '联系我们' },
 ]
 
 function Navbar() {
